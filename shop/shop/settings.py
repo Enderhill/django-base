@@ -1,5 +1,5 @@
 
-
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -105,7 +105,13 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
-STATIC_URL = 'static/'
+# --- Статические файлы (CSS, JS, изображения из проекта) ---
+STATIC_URL = '/static/'                               # URL, по которому Django будет отдавать статику
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')        # Папка, куда соберётся статика после collectstatic
+
+# --- Медиа-файлы (загруженные пользователями: фото, видео и т.д.) ---
+MEDIA_URL = '/media/'                                 # URL для доступа к медиа
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')          # Папка, где будут храниться загруженные файлы
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
